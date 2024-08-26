@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center">Formulaire d'ajout d'article</h1>
+    <a href="#" routerLink="/index-article/index-article" class="btn btn-warning">Retour</a>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-field">
+            <label for="titre">Titre</label>
+            <input type="text" id="titre" name="titre" formControlName="titre" class="form-control">
+            <div *ngIf="f['titre'].touched && f['titre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['titre'].errors && f['titre'].errors['required']"> Le titre est requis.</div>
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="titre">Description</label>
+            <textarea name="description" id="id" formControlName="description" class="form-control"></textarea>
+            <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+                <div *ngIf="f['description'].errors && f['description'].errors['required']"> La description est requis.</div>
+            </div>
+        </div> 
+        <button type="submit" class="btn btn-primary" [disabled]="form.value">Ajouter</button>
+    </form>
+    
+     
+</body>
+</html>
