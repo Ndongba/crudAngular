@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Affichage des Articles-->
+    <h1 class="text-center">Liste des articles</h1>
+    <table class="container">
+        <thead>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngfor="let article of articles">
+                <td>{{article.id}}</td>
+                <td>{{article.titre}}</td>
+                <td>{{article.description}}</td>
+                <td>
+                    <a href="#" class="btn btn-success" routerLink="['/article/', article.id,'show']">Detail</a>
+                    <a href="#"class="btn btn-primary" routerLink="['/article/', article.id, 'edit']">Modifier</a>
+                    <a href="#" class="btn btn-danger" (click)="deleteArticle(article.id)">Supprimer</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
